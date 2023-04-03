@@ -11,9 +11,7 @@ function useElementSize<T extends HTMLElement = HTMLDivElement>(): [
   (node: T | null) => void,
   Size,
 ] {
-  // Mutable values like 'ref.current' aren't valid dependencies
-  // because mutating them doesn't re-render the component.
-  // Instead, we use a state as a ref to be reactive.
+
   const [ref, setRef] = useState<T | null>(null)
   const [size, setSize] = useState<Size>({
     width: 0,
